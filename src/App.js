@@ -1,16 +1,18 @@
 import SearchBar from "./Components/SearchBar";
+import searchImages from "./api";
 
 function App() {
+  const handleSubmit = async (term) => {
+    const result = await searchImages(term);
 
-    const handleSubmit = (term) => {
-        console.log('Do a search with', term);
-    };
+    console.log(result);
+  };
 
-
-
-    return <div>
-        <SearchBar onSubmit={handleSubmit} />
+  return (
+    <div>
+      <SearchBar onSubmit={handleSubmit} />
     </div>
+  );
 }
 
 export default App;
